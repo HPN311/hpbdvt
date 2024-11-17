@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.cake {
+  position: relative;
+  width: 300px;
+  height: 200px;
+}
+
+.cake-layer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #d49a6a;
+  border-radius: 10px 10px 0 0;
+}
+
+.frosting {
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50% 50% 0 0;
+}
+
+.cake-decoration {
+  position: absolute;
+  bottom: 140px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10px;
+}
+
+.cake-decoration::before,
+.cake-decoration::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #f3b9b1;
+  border-radius: 50%;
+}
+
+/* Dòng chữ Happy Birthday với hiệu ứng chạy */
+.happy-birthday {
+  position: absolute;
+  top: 100px;
+  left: 100%; /* Bắt đầu ngoài màn hình ở bên phải */
+  font-family: "Arial", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff; /* Màu chữ */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Đổ bóng cho chữ */
+  text-align: center;
+  animation: moveText 10s linear infinite; /* Hiệu ứng di chuyển */
+}
+
+/* Hiệu ứng chạy chữ từ phải qua trái */
+@keyframes moveText {
+  0% {
+    left: 100%; /* Bắt đầu ở bên ngoài bên phải */
+  }
+  50% {
+    left: 0%; /* Dừng lại ở giữa màn hình */
+  }
+  100% {
+    left: -100%; /* Cuối cùng chạy ra ngoài bên trái */
+  }
+}
+
+/* Nến cắm trên lớp kem */
+.candles {
+  position: absolute;
+  bottom: 135px; /* Điều chỉnh vị trí để nến cắm trên lớp kem */
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px;
+}
+
+.candle {
+  position: relative;
+  width: 8px;
+  height: 40px;
+  background-color: #ffcc00; /* Màu thân nến */
+  border-radius: 4px;
+}
+
+.candle .flame {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 8px;
+  height: 20px;
+  background-color: #ff6600; /* Màu đỏ cam */
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: flicker 0.15s infinite alternate, rise 1s infinite ease-in-out;
+}
+
+/* Hiệu ứng nhấp nháy cho ngọn lửa */
+@keyframes flicker {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* Hiệu ứng lửa bập bùng */
+@keyframes rise {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    background-color: #ff6600;
+  }
+  25% {
+    transform: translateX(-50%) translateY(-2px) scale(1.1);
+    background-color: #ff9933;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-4px) scale(1.2);
+    background-color: #ffcc00;
+  }
+  75% {
+    transform: translateX(-50%) translateY(-6px) scale(1.3);
+    background-color: #ff6600;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-8px) scale(1.4);
+    background-color: #ff3300;
+  }
+}
